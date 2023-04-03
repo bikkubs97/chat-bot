@@ -2,11 +2,18 @@
 import TelegramBot from "node-telegram-bot-api";
 import { Configuration, OpenAIApi } from "openai";
 import { config } from "dotenv";
+import expess from "express";
 
 
 config()
 
+const app = expess()
 
+app.get('/', (req, res) => {
+    res.send("app is live")
+})
+
+app.listen(3000, ()=>{console.log("listening!")})
 
 const TOKEN = process.env.TELEGRAM_TOKEN
 
