@@ -9,6 +9,11 @@ config()
 const TOKEN = process.env.TELEGRAM_TOKEN
 
 const bot = new TelegramBot(TOKEN, {polling:true} )
+
+const openai = new OpenAIApi(new Configuration({
+    apiKey:process.env.CHATGPT_API
+}))
+
 let firstMsg = true;
 
 bot.on('message', (message)=>{
@@ -36,7 +41,3 @@ bot.onText(/\/prompt (.+)/, (msg, match) => {
 
   });
   
-const openai = new OpenAIApi(new Configuration({
-    apiKey:process.env.CHATGPT_API
-}))
-
