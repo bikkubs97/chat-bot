@@ -4,7 +4,7 @@ import { Configuration, OpenAIApi } from "openai";
 import { config } from "dotenv";
 config()
 
-const TOKEN = '6247446276:AAHC9AbE6O2UC1YEyE2ivBcc9CTG-M5T9Ec'
+const TOKEN = process.env.TELEGRAM_TOKEN
 
 const bot = new TelegramBot(TOKEN, {polling:true} )
 let firstMsg = true;
